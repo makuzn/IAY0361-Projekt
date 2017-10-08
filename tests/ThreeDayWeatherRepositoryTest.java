@@ -1,15 +1,18 @@
+import com.weather.reports.ThreeDayWeatherReport;
+import com.weather.repositories.ThreeDayWeatherRepository;
+import com.weather.requests.WeatherRequest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ThreeDayWRepositoryTest {
+class ThreeDayWeatherRepositoryTest {
 
     @Test
     public void testIfThreeDayWRepositoryRespCityEqualsReqSity() {
         try  {
             WeatherRequest request = new WeatherRequest("Tallinn", "EE", "metric");
-            ThreeDayWRepository repository = new ThreeDayWRepository();
-            ThreeDayWReport report = repository.getThreeDayW(request);
+            ThreeDayWeatherRepository repository = new ThreeDayWeatherRepository();
+            ThreeDayWeatherReport report = repository.getThreeDayW(request);
             assertEquals(report.cityName, request.cityName);
         }catch(Exception e){
             fail("Failure cause: " + e.getMessage());

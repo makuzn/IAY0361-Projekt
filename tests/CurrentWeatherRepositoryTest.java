@@ -1,3 +1,6 @@
+import com.weather.reports.CurrentWeatherReport;
+import com.weather.repositories.CurrentWeatherRepository;
+import com.weather.requests.WeatherRequest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,7 +13,8 @@ class CurrentWeatherRepositoryTest {
             WeatherRequest request = new WeatherRequest("Tallinn", "EE", "metric");
             CurrentWeatherRepository repository = new CurrentWeatherRepository();
             CurrentWeatherReport report = repository.getCurrentWeather(request);
-            assertEquals(report.cityName, request.cityName);
+
+            assertEquals(report.getCityName(), request.getCityName());
         }catch(Exception e){
             fail("Failure cause: " + e.getMessage());
         }
