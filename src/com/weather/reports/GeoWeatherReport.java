@@ -16,7 +16,5 @@ public class GeoWeatherReport extends Report {
         this.currentTemperature = data.getJSONObject("main").getDouble("temp");
         this.minimalTemperature = data.getJSONObject("main").getDouble("temp_min");
         this.maximumTemperature = data.getJSONObject("main").getDouble("temp_max");
-
-        System.out.println(data);
     }
 }

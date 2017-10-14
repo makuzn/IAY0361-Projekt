@@ -5,7 +5,7 @@ abstract public class Report {
     protected String countryCode;
 
     protected Double latitude;
-    protected Double longitude;;
+    protected Double longitude;
 
     protected Double currentTemperature;
     protected Double minimalTemperature;
