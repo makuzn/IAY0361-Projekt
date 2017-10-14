@@ -10,7 +10,7 @@ class GeoWeatherRepositoryTest {
     @Test
     public void testIfGeoRepositoryRespCityEqualsReqSity() {
         try  {
-            WeatherRequest request = new WeatherRequest("Tallinn", "EE", "metric");
+            WeatherRequest request = new WeatherRequest(35.5, 70.0, "metric");
             GeoWeatherRepository repository = new GeoWeatherRepository();
             GeoWeatherReport report = repository.getGeoWeather(request);
 
