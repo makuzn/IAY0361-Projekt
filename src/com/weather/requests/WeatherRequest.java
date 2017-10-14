@@ -2,12 +2,21 @@ package com.weather.requests;
 
 public class WeatherRequest {
     protected String cityName;
-    protected String countryName;
+    protected String countryCode;
     protected String units;
 
-    public WeatherRequest(String cityName, String countryName, String units) {
+    protected Double latitude;
+    protected Double longitude;
+
+    public WeatherRequest(String cityName, String countryCode, String units) {
         this.cityName = cityName;
-        this.countryName = countryName;
+        this.countryCode = countryCode;
+        this.units = units;
+    }
+
+    public WeatherRequest(Double latitude, Double longitude, String units) {
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.units = units;
     }
 
@@ -19,12 +28,12 @@ public class WeatherRequest {
         this.cityName = cityName;
     }
 
-    public String getCountryName() {
-        return countryName;
+    public String getCountryCode() {
+        return countryCode;
     }
 
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
     }
 
     public String getUnits() {
@@ -33,5 +42,21 @@ public class WeatherRequest {
 
     public void setUnits(String units) {
         this.units = units;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 }

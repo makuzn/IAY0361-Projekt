@@ -8,6 +8,12 @@ import java.net.URL;
 import java.nio.charset.Charset;
 
 abstract public class Repository {
+    protected String apiKey = "f3e4cf744029da7ce160bda24fae9854";
+
+    public String getApiKey() {
+        return apiKey;
+    }
+
     private final String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
         int cp;
@@ -19,6 +25,7 @@ abstract public class Repository {
 
     protected final JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
         InputStream is = new URL(url).openStream();
+
         try {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
             String jsonText = readAll(rd);

@@ -12,8 +12,13 @@ class GeoWeatherRepositoryTest {
         try  {
             WeatherRequest request = new WeatherRequest("Tallinn", "EE", "metric");
             GeoWeatherRepository repository = new GeoWeatherRepository();
-            GeoWeatherReport report = repository.getGeo(request);
-            assertEquals(report.cityName, request.cityName);
+            GeoWeatherReport report = repository.getGeoWeather(request);
+
+            assertEquals(report.getLatitude(), request.getLatitude());
+            assertEquals(report.getLongitude(), request.getLongitude());
+            assertNotNull(report.getCurrentTemperature());
+            assertNotNull(report.getMaximumTemperature());
+            assertNotNull(report.getMinimalTemperature());
         }catch(Exception e){
             fail("Failure cause: " + e.getMessage());
         }

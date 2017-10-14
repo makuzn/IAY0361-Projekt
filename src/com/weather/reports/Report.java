@@ -3,7 +3,9 @@ package com.weather.reports;
 abstract public class Report {
     protected String cityName;
     protected String countryCode;
-    protected String units;
+
+    protected Double latitude;
+    protected Double longitude;;
 
     protected Double currentTemperature;
     protected Double minimalTemperature;
@@ -17,10 +19,6 @@ abstract public class Report {
         return countryCode;
     }
 
-    public String getUnits() {
-        return units;
-    }
-
     public Double getCurrentTemperature() {
         return currentTemperature;
     }
@@ -31,5 +29,13 @@ abstract public class Report {
 
     public Double getMaximumTemperature() {
         return maximumTemperature;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
     }
 }
