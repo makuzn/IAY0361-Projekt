@@ -1,6 +1,5 @@
 package com.weather.reports;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class GeoWeatherReport extends Report {

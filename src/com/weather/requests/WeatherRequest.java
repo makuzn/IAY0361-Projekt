@@ -1,5 +1,12 @@
 package com.weather.requests;
 
+import com.weather.File;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class WeatherRequest {
     protected String cityName;
     protected String countryCode;
@@ -58,5 +65,33 @@ public class WeatherRequest {
 
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
+    }
+
+    public static List<WeatherRequest> requestsFromFile() throws IOException {
+        File fh = new File();
+
+        List<String> lines = fh.read("input.txt");
+        List<WeatherRequest> requests = new ArrayList<>();
+
+        lines.forEach(line -> {
+            String[] osad = line.split(",");
+
+            if (osad.length == 2) {
+                requests.add(new WeatherRequest(osad[0], osad[1], "metric"));
+            }
+        });
+
+        return requests;
+    }
+
+    public static WeatherRequest requestFromConsole() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Sisestage linna nimi (Tallinn,EE): ");
+        String input = scanner.nextLine();
+
+        String[] osad = input.split(",");
+
+        return new WeatherRequest(osad[0], osad[1], "metric");
     }
 }

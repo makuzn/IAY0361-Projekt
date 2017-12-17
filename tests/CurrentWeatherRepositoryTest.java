@@ -11,6 +11,8 @@ class CurrentWeatherRepositoryTest {
     public void testIfWeatherRepositoryRespCityEqualsReqSity() {
         try  {
             WeatherRequest request = new WeatherRequest("Tallinn", "EE", "metric");
+
+            CurrentWeatherRepository.mock();
             CurrentWeatherRepository repository = new CurrentWeatherRepository();
             CurrentWeatherReport report = repository.getCurrentWeather(request);
 

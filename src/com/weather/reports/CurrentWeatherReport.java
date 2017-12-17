@@ -5,8 +5,7 @@ import org.json.JSONObject;
 
 public class CurrentWeatherReport extends Report {
     public CurrentWeatherReport(JSONObject json) {
-        JSONArray list = json.getJSONArray("list");
-        JSONObject data = list.getJSONObject(0);
+        JSONObject data = json;
 
         this.cityName = data.getString("name");
         this.countryCode = data.getJSONObject("sys").getString("country");

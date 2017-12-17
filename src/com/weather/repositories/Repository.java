@@ -8,6 +8,16 @@ import java.net.URL;
 import java.nio.charset.Charset;
 
 abstract public class Repository {
+    protected static boolean mock = false;
+
+    public boolean isMock() {
+        return mock;
+    }
+
+    public static void mock() {
+        mock = true;
+    }
+
     protected String apiKey = "f3e4cf744029da7ce160bda24fae9854";
 
     public String getApiKey() {

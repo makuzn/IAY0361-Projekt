@@ -11,9 +11,14 @@ class ThreeDayWeatherRepositoryTest {
     public void testIfThreeDayWRepositoryRespCityEqualsReqSity() {
         try  {
             WeatherRequest request = new WeatherRequest("Tallinn", "EE", "metric");
+
+            ThreeDayWeatherRepository.mock();
             ThreeDayWeatherRepository repository = new ThreeDayWeatherRepository();
-            //ThreeDayWeatherReport report = repository.getThreeDayW(request);
-            //assertEquals(report.cityName, request.cityName);
+            ThreeDayWeatherReport report = repository.getThreeDayWeather(request);
+
+            assertEquals(report.getCityName(), request.getCityName());
+            assertEquals(report.getCountryCode(), request.getCountryCode());
+            assertTrue(report.temperatures.size() == 3);
         }catch(Exception e){
             fail("Failure cause: " + e.getMessage());
         }
